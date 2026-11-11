@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thank You | Mhia's Artisan Desserts</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f7e6e2">
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="brand"><img src="images/logo.png" alt="Mhia's Artisan Desserts home" width="64" height="64"></a>
+    <nav class="nav">
+      <a href="/#menu">Menu</a>
+      <a href="/#cakes">Cakes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <img src="images/bow.svg" alt="" class="bow">
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <img src="images/sprig.svg" alt="" class="sprig">
+        <h1>Thank You!</h1>
+        <p class="subtitle">Your order is in, and we can't wait to make it for you</p>
+        <span class="gold-rule"></span>
+        <p class="thanks-text">You'll get a receipt from Square with your order details and pickup time.<br>
+          Pickup is at <strong>4030 Gannett St., Casper, WY</strong>.</p>
+        <p class="thanks-text">Need to change something? Text us at <a href="tel:+13074411419">307-441-1419</a>.</p>
+        <a class="btn" href="/">Back to the Menu</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-brand">Mhia's Artisan Desserts</p>
+    <p>Casper, WY &middot; <a href="tel:+13074411419">307-441-1419</a></p>
+  </footer>
+
+  <script>
+    // The order is paid, so empty the cart saved in this browser.
+    try { localStorage.removeItem("mhia-cart-v1"); } catch (e) {}
+  </script>
+</body>
+</html>

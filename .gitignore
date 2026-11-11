@@ -1,6 +1,16 @@
 # Local preview tools (not part of the website)
 .claude/
 
+# Secret keys for local testing - NEVER commit
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+
+# Cloudflare / Node build files
+.wrangler/
+node_modules/
+
 # Old manual-upload copy
 upload/
 

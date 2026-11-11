@@ -26,14 +26,10 @@
 
 <!--
   =====================================================================
-  ORDER LINKS
-  Every "Order" button links to Cash App. To change the link later,
-  use Find & Replace on:
-
-      https://cash.app/$mhiasartisandesserts
-
-  You can also give any single dessert its own link by changing just
-  that button's href.
+  ORDERING
+  "Add to Cart" buttons use data-add="item-id". Item ids, names and
+  prices live in js/catalog.js; the cart is in js/cart.js. Payment
+  happens on Square's secure checkout page.
   =====================================================================
 -->
 
@@ -43,6 +39,10 @@
       <a href="#menu">Menu</a>
       <a href="#cakes">Cakes</a>
       <a href="#order">Order</a>
+      <button type="button" class="cart-button" id="cart-open" aria-label="Open cart, 0 items">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 7h12l-1.2 12.1a1 1 0 0 1-1 .9H8.2a1 1 0 0 1-1-.9L6 7Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 9V6a3 3 0 0 1 6 0v3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span class="cart-count" id="cart-count" hidden>0</span>
+      </button>
     </nav>
   </header>
 
@@ -58,7 +58,7 @@
         <h1>Mhia's Artisan Desserts</h1>
         <p class="subtitle">Homemade desserts crafted with love</p>
         <span class="gold-rule"></span>
-        <a class="btn" href="https://cash.app/$mhiasartisandesserts">Order Now</a>
+        <a class="btn" href="#menu">Order Now</a>
         <p class="hero-note">Pickup only in Casper, WY<br>Order at least 24 hours ahead</p>
       </div>
       <div class="hero-photo">
@@ -85,21 +85,21 @@
           <img loading="lazy" class="cutout" src="images/tres-leches.png" alt="Strawberry Tres Leches topped with whipped cream and strawberries">
           <h3>Strawberry Tres Leches</h3>
           <p class="price">$7</p>
-          <a class="btn btn-small" href="https://cash.app/$mhiasartisandesserts">Order</a>
+          <button type="button" class="btn btn-small" data-add="strawberry-tres-leches">Add to Cart</button>
         </article>
         <article class="card">
           <span class="corner-ribbon">Bestseller</span>
           <img loading="lazy" src="images/biscoff-tres-leches.jpg" alt="Biscoff Tres Leches with cookie butter drizzle and a Biscoff cookie">
           <h3>Biscoff Tres Leches</h3>
           <p class="price">$7</p>
-          <a class="btn btn-small" href="https://cash.app/$mhiasartisandesserts">Order</a>
+          <button type="button" class="btn btn-small" data-add="biscoff-tres-leches">Add to Cart</button>
         </article>
         <article class="card">
           <span class="corner-ribbon">Bestseller</span>
           <img loading="lazy" class="cutout" src="images/chocolate-tres-leches.png" alt="Chocolate Oreo Tres Leches with cookie crumbs and chocolate drizzle">
           <h3>Chocolate Oreo Tres Leches</h3>
           <p class="price">$7</p>
-          <a class="btn btn-small" href="https://cash.app/$mhiasartisandesserts">Order</a>
+          <button type="button" class="btn btn-small" data-add="oreo-tres-leches">Add to Cart</button>
         </article>
       </div>
     </section>
@@ -115,37 +115,37 @@
           <img loading="lazy" class="cutout" src="images/chocolate-tres-leches.png" alt="Chocolate Oreo Tres Leches with cookie crumbs and chocolate drizzle">
           <h3>Chocolate Oreo Tres Leches</h3>
           <p class="price">$7</p>
-          <a class="btn btn-small" href="https://cash.app/$mhiasartisandesserts">Order</a>
+          <button type="button" class="btn btn-small" data-add="oreo-tres-leches">Add to Cart</button>
         </article>
         <article class="card">
           <img loading="lazy" src="images/biscoff-tres-leches.jpg" alt="Biscoff Tres Leches with cookie butter drizzle and a Biscoff cookie">
           <h3>Biscoff Tres Leches</h3>
           <p class="price">$7</p>
-          <a class="btn btn-small" href="https://cash.app/$mhiasartisandesserts">Order</a>
+          <button type="button" class="btn btn-small" data-add="biscoff-tres-leches">Add to Cart</button>
         </article>
         <article class="card">
           <img loading="lazy" src="images/dubai-chocolate-tres-leches.jpg" alt="Dubai Chocolate Tres Leches with pistachio cake, strawberries, kataifi and chocolate drizzle">
           <h3>Dubai Chocolate Tres Leches</h3>
           <p class="price">$7</p>
-          <a class="btn btn-small" href="https://cash.app/$mhiasartisandesserts">Order</a>
+          <button type="button" class="btn btn-small" data-add="dubai-tres-leches">Add to Cart</button>
         </article>
         <article class="card">
           <img loading="lazy" class="cutout" src="images/tres-leches.png" alt="Strawberry Tres Leches topped with whipped cream and strawberries">
           <h3>Strawberry Tres Leches</h3>
           <p class="price">$7</p>
-          <a class="btn btn-small" href="https://cash.app/$mhiasartisandesserts">Order</a>
+          <button type="button" class="btn btn-small" data-add="strawberry-tres-leches">Add to Cart</button>
         </article>
         <article class="card">
           <img loading="lazy" class="cutout" src="images/chocoflan.png" alt="Chocolate Flan topped with a strawberry">
           <h3>Chocolate Flan</h3>
           <p class="price">$7</p>
-          <a class="btn btn-small" href="https://cash.app/$mhiasartisandesserts">Order</a>
+          <button type="button" class="btn btn-small" data-add="chocolate-flan">Add to Cart</button>
         </article>
         <article class="card">
           <img loading="lazy" class="cutout" src="images/churro-cheesecake.png" alt="Churro Cheesecake slice with a strawberry and chocolate drizzle">
           <h3>Churro Cheesecake</h3>
           <p class="price">$7</p>
-          <a class="btn btn-small" href="https://cash.app/$mhiasartisandesserts">Order</a>
+          <button type="button" class="btn btn-small" data-add="churro-cheesecake">Add to Cart</button>
         </article>
         <article class="card">
           <img loading="lazy" src="images/churro-cheesecake-bites.jpg" alt="Churro Cheesecake Bites with strawberries and chocolate drizzle">
@@ -153,21 +153,20 @@
           <!-- Size choice: each size needs a radio input, a label and a price with matching names -->
           <fieldset class="size-picker">
             <legend>Choose a size</legend>
-            <input type="radio" name="bites-size" id="bites-regular" checked>
+            <input type="radio" name="bites-size" id="bites-regular" value="regular" checked>
             <label for="bites-regular">Regular</label>
-            <input type="radio" name="bites-size" id="bites-family">
+            <input type="radio" name="bites-size" id="bites-family" value="family">
             <label for="bites-family">Family Size</label>
             <p class="price price-regular">$9</p>
             <p class="price price-family">$15</p>
           </fieldset>
-          <p class="desc">Select the same size on our Cash App page.</p>
-          <a class="btn btn-small" href="https://cash.app/$mhiasartisandesserts">Order</a>
+          <button type="button" class="btn btn-small" data-add="churro-bites" data-size-group="bites-size">Add to Cart</button>
         </article>
         <article class="card">
           <img loading="lazy" src="images/gelatina-pina-colada.jpg" alt="Gelatina Pi&ntilde;a Colada with pineapple, cherries and shredded coconut">
           <h3>Gelatina Pi&ntilde;a Colada</h3>
           <p class="price">$7</p>
-          <a class="btn btn-small" href="https://cash.app/$mhiasartisandesserts">Order</a>
+          <button type="button" class="btn btn-small" data-add="gelatina-pina-colada">Add to Cart</button>
         </article>
       </div>
     </section>
@@ -221,57 +220,69 @@
           <p class="cake-menu-note">Customize your cake with your favorite flavors, fillings and finishing touches.</p>
           <span class="gold-rule"></span>
 
-          <details class="cake-row">
-            <summary><span class="row-title">Cake Size</span><span class="row-hint">from $42</span></summary>
-            <ul class="menu-list">
-              <li><span>8&times;8&Prime; cake</span><span class="amt">$42</span></li>
-              <li><span>8&times;16&Prime; cake</span><span class="amt">$56</span></li>
+          <!-- Cake builder. Names, prices and choices must match public/js/catalog.js -->
+          <form id="cake-form" novalidate>
+          <details class="cake-row" data-row="size">
+            <summary><span class="row-title">Cake Size</span><span class="row-hint" data-default="from $42">from $42</span></summary>
+            <ul class="menu-list choice-list">
+              <li><label><input type="radio" name="size" value="8x8"><span>8&times;8&Prime; cake</span><span class="amt">$42</span></label></li>
+              <li><label><input type="radio" name="size" value="8x16"><span>8&times;16&Prime; cake</span><span class="amt">$56</span></label></li>
             </ul>
           </details>
 
-          <details class="cake-row">
-            <summary><span class="row-title">Cake Flavor</span><span class="row-hint">choose one</span></summary>
-            <ul class="menu-list menu-list-2">
-              <li>Vanilla</li>
-              <li>Chocolate</li>
-              <li>Mocha</li>
-              <li>Strawberry</li>
-              <li>Oreo</li>
-              <li>Dubai Chocolate</li>
-              <li>Dubai Pistachio</li>
-              <li>Ferrero Rocher</li>
+          <details class="cake-row" data-row="flavor">
+            <summary><span class="row-title">Cake Flavor</span><span class="row-hint" data-default="choose one">choose one</span></summary>
+            <ul class="menu-list menu-list-2 choice-list">
+              <li><label><input type="radio" name="flavor" value="Vanilla"><span>Vanilla</span></label></li>
+              <li><label><input type="radio" name="flavor" value="Chocolate"><span>Chocolate</span></label></li>
+              <li><label><input type="radio" name="flavor" value="Mocha"><span>Mocha</span></label></li>
+              <li><label><input type="radio" name="flavor" value="Strawberry"><span>Strawberry</span></label></li>
+              <li><label><input type="radio" name="flavor" value="Oreo"><span>Oreo</span></label></li>
+              <li><label><input type="radio" name="flavor" value="Dubai Chocolate"><span>Dubai Chocolate</span></label></li>
+              <li><label><input type="radio" name="flavor" value="Dubai Pistachio"><span>Dubai Pistachio</span></label></li>
+              <li><label><input type="radio" name="flavor" value="Ferrero Rocher"><span>Ferrero Rocher</span></label></li>
             </ul>
           </details>
 
-          <details class="cake-row">
-            <summary><span class="row-title">Fillings</span><span class="row-hint">+$9 each, up to two</span></summary>
-            <ul class="menu-list menu-list-2">
-              <li>Dulce de Leche</li>
-              <li>Dulce de Leche with Pecans</li>
-              <li>Nutella</li>
-              <li>Nutella with Strawberries</li>
-              <li>Oreo Cream</li>
-              <li>Strawberries &amp; Cream</li>
-              <li>Pineapple Coconut Cream</li>
-              <li>Peach</li>
+          <details class="cake-row" data-row="fillings">
+            <summary><span class="row-title">Fillings</span><span class="row-hint" data-default="+$9 each, up to two">+$9 each, up to two</span></summary>
+            <ul class="menu-list menu-list-2 choice-list">
+              <li><label><input type="checkbox" name="fillings" value="Dulce de Leche"><span>Dulce de Leche</span></label></li>
+              <li><label><input type="checkbox" name="fillings" value="Dulce de Leche with Pecans"><span>Dulce de Leche with Pecans</span></label></li>
+              <li><label><input type="checkbox" name="fillings" value="Nutella"><span>Nutella</span></label></li>
+              <li><label><input type="checkbox" name="fillings" value="Nutella with Strawberries"><span>Nutella with Strawberries</span></label></li>
+              <li><label><input type="checkbox" name="fillings" value="Oreo Cream"><span>Oreo Cream</span></label></li>
+              <li><label><input type="checkbox" name="fillings" value="Strawberries &amp; Cream"><span>Strawberries &amp; Cream</span></label></li>
+              <li><label><input type="checkbox" name="fillings" value="Pineapple Coconut Cream"><span>Pineapple Coconut Cream</span></label></li>
+              <li><label><input type="checkbox" name="fillings" value="Peach"><span>Peach</span></label></li>
             </ul>
           </details>
 
-          <details class="cake-row">
-            <summary><span class="row-title">Premium Add-ons</span><span class="row-hint">from $3</span></summary>
-            <ul class="menu-list">
-              <li><span>Fresh Strawberries</span><span class="amt">+$5</span></li>
-              <li><span>Mixed Fresh Fruit</span><span class="amt">+$7</span></li>
-              <li><span>Chocolate Ganache</span><span class="amt">+$6</span></li>
-              <li><span>Chocolate Drizzle</span><span class="amt">+$3</span></li>
-              <li><span>Oreo / Cookie Toppings</span><span class="amt">+$3</span></li>
-              <li><span>Pecans / Nuts</span><span class="amt">+$4</span></li>
-              <li><span>Custom Color Decorations</span><span class="amt">+$5</span></li>
-              <li><span>Personalized Writing</span><span class="amt">Free</span></li>
+          <details class="cake-row" data-row="addons">
+            <summary><span class="row-title">Premium Add-ons</span><span class="row-hint" data-default="from $3">from $3</span></summary>
+            <ul class="menu-list choice-list">
+              <li><label><input type="checkbox" name="addons" value="fresh-strawberries"><span>Fresh Strawberries</span><span class="amt">+$5</span></label></li>
+              <li><label><input type="checkbox" name="addons" value="mixed-fruit"><span>Mixed Fresh Fruit</span><span class="amt">+$7</span></label></li>
+              <li><label><input type="checkbox" name="addons" value="ganache"><span>Chocolate Ganache</span><span class="amt">+$6</span></label></li>
+              <li><label><input type="checkbox" name="addons" value="drizzle"><span>Chocolate Drizzle</span><span class="amt">+$3</span></label></li>
+              <li><label><input type="checkbox" name="addons" value="cookie-topping"><span>Oreo / Cookie Toppings</span><span class="amt">+$3</span></label></li>
+              <li><label><input type="checkbox" name="addons" value="pecans"><span>Pecans / Nuts</span><span class="amt">+$4</span></label></li>
+              <li><label><input type="checkbox" name="addons" value="custom-colors"><span>Custom Color Decorations</span><span class="amt">+$5</span></label></li>
             </ul>
           </details>
 
-          <a class="btn" href="https://cash.app/$mhiasartisandesserts">Order a Cake</a>
+          <details class="cake-row" data-row="writing">
+            <summary><span class="row-title">Personalized Writing</span><span class="row-hint" data-default="free">free</span></summary>
+            <div class="writing-field">
+              <label for="cake-writing">Message on the cake (optional)</label>
+              <input type="text" id="cake-writing" name="writing" maxlength="60" placeholder="e.g. Happy Birthday Sofia!">
+            </div>
+          </details>
+
+          <p class="cake-total" aria-live="polite">Cake total: <span id="cake-total">$0</span></p>
+          <p class="form-error" id="cake-error" role="alert" hidden></p>
+          <button type="submit" class="btn">Add Cake to Cart</button>
+          </form>
           <p class="cake-menu-lead">Order custom cakes at least 3 days ahead</p>
           <p class="cake-menu-fine">Special requests and custom designs are subject to availability and may affect the final price. Questions? Text <a href="tel:+13074411419">307-441-1419</a>.</p>
         </div>
@@ -294,12 +305,12 @@
         <li>
           <span class="step-num">1</span>
           <h3>Place your order</h3>
-          <p><strong>At least 24 hours in advance</strong> (3 days for custom cakes). Order on our Cash App page.</p>
+          <p>Add desserts and cakes to your cart. <strong>At least 24 hours in advance</strong> (3 days for custom cakes).</p>
         </li>
         <li>
           <span class="step-num">2</span>
-          <h3>Pick a time</h3>
-          <p>Choose a pickup time that works for you. Pickup is available daily, 9 AM&ndash;7 PM.</p>
+          <h3>Pick a time &amp; pay</h3>
+          <p>Choose a pickup time (daily, 9 AM&ndash;7 PM) and pay securely with card, Apple Pay, Google Pay or Cash App Pay.</p>
         </li>
         <li>
           <span class="step-num">3</span>
@@ -308,8 +319,9 @@
         </li>
       </ol>
       <div class="center">
-        <a class="btn" href="https://cash.app/$mhiasartisandesserts">Order Now</a>
+        <a class="btn" href="#menu">Start Your Order</a>
       </div>
+      <p class="policy-note"><strong>Cancellations:</strong> full refund if you cancel at least 48 hours before pickup; no refunds after that. Custom cakes are non-refundable once we've started making them.</p>
     </section>
 
     <!-- 7. OUR STORY -->
@@ -339,5 +351,67 @@
     <p class="copyright">&copy; 2026 Mhia's Artisan Desserts</p>
   </footer>
 
+  <!-- CART (opens from the bag icon in the header) -->
+  <dialog class="cart" id="cart" aria-labelledby="cart-title">
+    <div class="cart-head">
+      <h2 id="cart-title">Your Order</h2>
+      <button type="button" class="cart-close" id="cart-close" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-body">
+      <p class="cart-empty" id="cart-empty">Your cart is empty. <a href="#menu" data-close-cart>Browse the menu</a>.</p>
+      <ul class="cart-lines" id="cart-lines"></ul>
+      <p class="cart-subtotal" id="cart-subtotal-row" hidden>Total <span id="cart-subtotal">$0</span></p>
+
+      <form class="checkout" id="checkout-form" novalidate hidden>
+        <h3>Pickup</h3>
+        <p class="checkout-hint" id="pickup-hint">Pickup at 4030 Gannett St., Casper, WY.</p>
+        <div class="field-row">
+          <div class="field">
+            <label for="pickup-date">Date</label>
+            <input type="date" id="pickup-date" name="pickupDate" required>
+          </div>
+          <div class="field">
+            <label for="pickup-time">Time</label>
+            <select id="pickup-time" name="pickupTime" required></select>
+          </div>
+        </div>
+        <p class="field-note" id="date-note" hidden></p>
+
+        <h3>Your details</h3>
+        <div class="field">
+          <label for="c-name">Name</label>
+          <input type="text" id="c-name" name="name" autocomplete="name" maxlength="80" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="c-phone">Phone</label>
+            <input type="tel" id="c-phone" name="phone" autocomplete="tel" inputmode="tel" required>
+          </div>
+          <div class="field">
+            <label for="c-email">Email <span class="optional">(for your receipt)</span></label>
+            <input type="email" id="c-email" name="email" autocomplete="email" maxlength="120">
+          </div>
+        </div>
+        <div class="field">
+          <label for="c-note">Special requests <span class="optional">(colors, design, allergies)</span></label>
+          <textarea id="c-note" name="note" rows="3" maxlength="500"></textarea>
+        </div>
+
+        <label class="agree">
+          <input type="checkbox" id="c-agree" name="agree" required>
+          <span>I agree to the cancellation policy: full refund if cancelled at least 48 hours before pickup; no refunds after that. Custom cakes are non-refundable once started.</span>
+        </label>
+
+        <p class="form-error" id="checkout-error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-block" id="checkout-submit">Continue to Payment</button>
+        <p class="secure-note">You'll pay on Square's secure checkout page. Card, Apple Pay, Google Pay and Cash App Pay accepted.</p>
+      </form>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="js/cart.js"></script>
 </body>
 </html>
