@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 80" width="140" height="80">
+  <g stroke="#b8975a" stroke-width="1.2" stroke-linejoin="round">
+    <!-- tails -->
+    <path d="M64 38 L44 76 L52 71 L56 79 L70 42 Z" fill="#d9a39a"/>
+    <path d="M76 38 L96 76 L88 71 L84 79 L70 42 Z" fill="#d9a39a"/>
+    <!-- loops -->
+    <path d="M68 34 C48 4 10 6 14 30 C18 52 50 50 68 38 Z" fill="#ecc1b9"/>
+    <path d="M72 34 C92 4 130 6 126 30 C122 52 90 50 72 38 Z" fill="#ecc1b9"/>
+    <!-- loop folds -->
+    <path d="M62 34 C46 20 28 20 26 30" fill="none" stroke-width=".8" opacity=".7"/>
+    <path d="M78 34 C94 20 112 20 114 30" fill="none" stroke-width=".8" opacity=".7"/>
+    <!-- knot -->
+    <rect x="62" y="28" width="16" height="16" rx="5" fill="#d9a39a"/>
+  </g>
+</svg>

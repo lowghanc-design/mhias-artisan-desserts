@@ -1,0 +1,8 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#f2d9d4"/>
+  <rect x="24" y="24" width="752" height="552" fill="none" stroke="#b8975a" stroke-width="1.5"/>
+  <circle cx="400" cy="260" r="46" fill="none" stroke="#3f7f7a" stroke-width="1.5"/>
+  <path d="M380 270 l14 -18 l10 12 l8 -8 l12 14 z" fill="none" stroke="#3f7f7a" stroke-width="1.5"/>
+  <text x="400" y="350" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#3b2f2d">Family Combo</text>
+  <text x="400" y="386" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" letter-spacing="4" fill="#7a6763">PHOTO PLACEHOLDER</text>
+</svg>

@@ -1,0 +1,10 @@
+# Local preview tools (not part of the website)
+.claude/
+
+# Old manual-upload copy
+upload/
+
+# System files
+Thumbs.db
+desktop.ini
+.DS_Store
