@@ -1,0 +1,8 @@
+// Cloudflare deploy settings. The site is plain HTML/CSS/images served as static files.
+{
+  "name": "mhias-artisan-desserts",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./"
+  }
+}
