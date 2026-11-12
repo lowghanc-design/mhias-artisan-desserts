@@ -16,7 +16,7 @@
     // Square location (shown in the Square Developer dashboard)
     "SQUARE_LOCATION_ID": "L5CGB1HKEM4HJ",
     // Max paid orders per pickup day, and how many of them may include a custom cake
-    "DAILY_ORDER_CAP": "10",
+    "DAILY_ORDER_CAP": "15",
     "DAILY_CAKE_CAP": "3",
     "SITE_URL": "https://mhiasartisandesserts.com"
   },
@@ -25,7 +25,7 @@
     "vars": {
       "SQUARE_ENV": "sandbox",
       "SQUARE_LOCATION_ID": "L5CGB1HKEM4HJ",
-      "DAILY_ORDER_CAP": "10",
+      "DAILY_ORDER_CAP": "15",
       "DAILY_CAKE_CAP": "3",
       "SITE_URL": ""
     }
