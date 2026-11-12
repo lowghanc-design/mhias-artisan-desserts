@@ -12,9 +12,9 @@
   },
   "vars": {
     // "sandbox" for test payments, "production" for real ones
-    "SQUARE_ENV": "sandbox",
+    "SQUARE_ENV": "production",
     // Square location (shown in the Square Developer dashboard)
-    "SQUARE_LOCATION_ID": "L5CGB1HKEM4HJ",
+    "SQUARE_LOCATION_ID": "LWTGMYWBANYJW",
     // Max paid orders per pickup day, and how many of them may include a custom cake
     "DAILY_ORDER_CAP": "15",
     "DAILY_CAKE_CAP": "3",
@@ -32,5 +32,6 @@
   }
   // The Square access token is a secret: it is NOT stored here.
   // Local testing: put SQUARE_ACCESS_TOKEN=... in a .dev.vars file (never committed).
-  // Live site: Cloudflare dashboard -> this Worker -> Settings -> Variables and Secrets.
+  // Live site: npx wrangler secret put SQUARE_ACCESS_TOKEN (Production token).
+  // Preview links: npx wrangler preview base-config secret put SQUARE_ACCESS_TOKEN (Sandbox token).
 }
