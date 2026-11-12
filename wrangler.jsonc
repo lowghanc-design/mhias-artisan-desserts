@@ -14,7 +14,7 @@
     // "sandbox" for test payments, "production" for real ones
     "SQUARE_ENV": "sandbox",
     // Square location (shown in the Square Developer dashboard)
-    "SQUARE_LOCATION_ID": "",
+    "SQUARE_LOCATION_ID": "L5CGB1HKEM4HJ",
     // Max paid orders per pickup day, and how many of them may include a custom cake
     "DAILY_ORDER_CAP": "10",
     "DAILY_CAKE_CAP": "3",
