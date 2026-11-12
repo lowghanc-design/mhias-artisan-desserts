@@ -103,10 +103,9 @@ async function checkout(request, env) {
   const lineItems = validated.map(toSquareLineItem);
   const pickupNoteParts = [];
   if (note) pickupNoteParts.push(note);
-  const site = (env.SITE_URL || new URL(request.url).origin).replace(/\/$/, "");
-  const reqOrigin = new URL(request.url).origin;
-  // When testing locally, come back to the local site instead of the live one.
-  const returnBase = /localhost|127\.0\.0\.1/.test(reqOrigin) ? reqOrigin : site;
+  // After paying, send customers back to the same site they ordered from
+  // (the live domain, or a preview link while testing).
+  const returnBase = new URL(request.url).origin;
 
   const payload = {
     idempotency_key: crypto.randomUUID(),
