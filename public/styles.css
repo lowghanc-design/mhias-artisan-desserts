@@ -1157,3 +1157,34 @@ select:disabled { color: var(--muted); background: var(--blush); }
   line-height: 1;
   cursor: pointer;
 }
+
+/* ----- Footer: payment methods ----- */
+.payments { margin: 22px auto 0; max-width: 620px; }
+
+.payments-title {
+  font-size: .75rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.payments-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.payments-list li {
+  padding: 4px 12px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: var(--white);
+  font-size: .8rem;
+  color: var(--ink);
+}
+
+.payments-note { margin-top: 10px !important; font-size: .78rem; color: var(--muted); }

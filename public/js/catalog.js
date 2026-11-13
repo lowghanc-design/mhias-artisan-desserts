@@ -24,8 +24,8 @@ export const ITEMS = {
   "churro-bites": {
     name: "Churro Cheesecake Bites",
     sizes: {
-      regular: { label: "Regular", price: 900 },
-      family: { label: "Family Size", price: 1500 },
+      regular: { label: "Small", price: 900 },
+      family: { label: "Large", price: 1500 },
     },
   },
   "gelatina-pina-colada": { name: "Gelatina Piña Colada", price: 700 },
