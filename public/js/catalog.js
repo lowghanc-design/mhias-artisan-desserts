@@ -10,8 +10,16 @@ export const ITEMS = {
   "strawberry-tres-leches": { name: "Strawberry Tres Leches", price: 700 },
   "biscoff-tres-leches": { name: "Biscoff Tres Leches", price: 700 },
   "oreo-tres-leches": { name: "Chocolate Oreo Tres Leches", price: 700 },
-  "dubai-tres-leches": { name: "Dubai Chocolate Tres Leches", price: 700 },
-  "chocolate-flan": { name: "Chocolate Flan", price: 700 },
+  "dubai-tres-leches": { name: "Dubai Pistachio Tres Leches", price: 700 },
+  // Id stays "chocolate-flan" so carts saved before the rename keep working.
+  "chocolate-flan": {
+    name: "Mini Choco Flan",
+    sizes: {
+      chocolate: { label: "Chocolate", price: 700 },
+      "red-velvet": { label: "Red Velvet", price: 700 },
+      strawberry: { label: "Strawberry", price: 700 },
+    },
+  },
   "churro-cheesecake": { name: "Churro Cheesecake", price: 700 },
   "churro-bites": {
     name: "Churro Cheesecake Bites",
@@ -25,9 +33,15 @@ export const ITEMS = {
 
 export const CAKE = {
   name: "Custom Cake",
+  // Round cakes: 3 layers of cake, up to 2 fillings included in the price.
+  // Tray cakes: fillings cost fillingPrice each.
   sizes: {
-    "8x8": { label: "8×8″", price: 4200 },
-    "8x16": { label: "8×16″", price: 5600 },
+    "4in": { label: "4″ round", price: 3500, fillingsIncluded: true },
+    "6in": { label: "6″ round", price: 6500, fillingsIncluded: true },
+    "8in": { label: "8″ round", price: 8500, fillingsIncluded: true },
+    "10in": { label: "10″ round", price: 11000, fillingsIncluded: true },
+    "8x8": { label: "8×8″ tray", price: 4200 },
+    "9x13": { label: "9×13″ tray", price: 5600 },
   },
   flavors: [
     "Vanilla", "Chocolate", "Mocha", "Strawberry", "Oreo",
@@ -38,7 +52,7 @@ export const CAKE = {
     "Nutella with Strawberries", "Oreo Cream", "Strawberries & Cream",
     "Pineapple Coconut Cream", "Peach",
   ],
-  fillingPrice: 900,
+  fillingPrice: 900, // per filling, tray cakes only
   maxFillings: 2,
   addons: {
     "fresh-strawberries": { label: "Fresh Strawberries", price: 500 },
@@ -85,7 +99,7 @@ export function linePrice(line) {
     const size = CAKE.sizes[line.size];
     if (!size) return null;
     let total = size.price;
-    total += (line.fillings || []).length * CAKE.fillingPrice;
+    total += (line.fillings || []).length * fillingPrice(line.size);
     for (const id of line.addons || []) {
       if (!CAKE.addons[id]) return null;
       total += CAKE.addons[id].price;
@@ -93,6 +107,11 @@ export function linePrice(line) {
     return total;
   }
   return null;
+}
+
+// Price of one filling for a cake size (0 when fillings are included).
+export function fillingPrice(sizeId) {
+  return CAKE.sizes[sizeId]?.fillingsIncluded ? 0 : CAKE.fillingPrice;
 }
 
 export function lineTitle(line) {

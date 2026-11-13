@@ -5,7 +5,7 @@
 // Card details never touch this server: customers pay on Square's own page.
 
 import {
-  ITEMS, CAKE, RULES, linePrice, lineTitle, hasCake,
+  ITEMS, CAKE, RULES, linePrice, lineTitle, hasCake, fillingPrice,
   pickupTimes, pickupInstant, localDate,
 } from "../public/js/catalog.js";
 
@@ -187,7 +187,7 @@ function toSquareLineItem(line) {
     };
   }
   const modifiers = [];
-  for (const f of line.fillings) modifiers.push({ name: `Filling: ${f}`, base_price_money: usd(CAKE.fillingPrice) });
+  for (const f of line.fillings) modifiers.push({ name: `Filling: ${f}`, base_price_money: usd(fillingPrice(line.size)) });
   for (const a of line.addons) modifiers.push({ name: CAKE.addons[a].label, base_price_money: usd(CAKE.addons[a].price) });
   if (line.writing) modifiers.push({ name: `Writing: "${line.writing}"`, base_price_money: usd(0) });
   return {

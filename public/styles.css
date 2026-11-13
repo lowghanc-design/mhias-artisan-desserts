@@ -5,6 +5,8 @@
   --white: #fffdfb;
   --gold: #b8975a;
   --teal: #3f7f7a;
+  --berry: #a8325a;
+  --berry-dark: #972d51; /* --berry darkened ~10% for hover */
   --ink: #3b2f2d;
   --muted: #7a6763;
 }
@@ -59,7 +61,7 @@ h3 { font-size: 1.35rem; }
 
 .brand { display: block; }
 
-.brand img { width: 64px; height: 64px; }
+.brand img { width: 84px; height: 84px; }
 
 .nav { display: flex; gap: 22px; }
 
@@ -77,9 +79,9 @@ h3 { font-size: 1.35rem; }
 .btn {
   display: inline-block;
   padding: 14px 38px;
-  background: var(--teal);
+  background: var(--berry);
   color: var(--white);
-  border: 1px solid var(--teal);
+  border: 1px solid var(--berry);
   text-decoration: none;
   font-size: .85rem;
   letter-spacing: .2em;
@@ -87,7 +89,7 @@ h3 { font-size: 1.35rem; }
   transition: background .2s, color .2s;
 }
 
-.btn:hover { background: transparent; color: var(--teal); }
+.btn:hover { background: var(--berry-dark); border-color: var(--berry-dark); color: var(--white); }
 
 .btn-small { padding: 9px 26px; font-size: .75rem; margin-top: auto; }
 
@@ -726,7 +728,7 @@ h3 { font-size: 1.35rem; }
 @media (max-width: 720px) {
   body { font-size: 16px; }
   .site-header { padding: 8px 16px; }
-  .brand img { width: 52px; height: 52px; }
+  .brand img { width: 68px; height: 68px; }
   .nav { gap: 14px; }
   .nav a { font-size: .7rem; letter-spacing: .1em; }
 
@@ -1051,4 +1053,107 @@ select:disabled { color: var(--muted); background: var(--blush); }
 @media (max-width: 480px) {
   .field-row { grid-template-columns: 1fr; gap: 0; }
   .cart-head, .cart-body { padding-left: 16px; padding-right: 16px; }
+}
+
+/* ----- Cake builder notes under a row title ----- */
+.choice-note {
+  margin: 4px 0 8px;
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: left;
+}
+
+/* ----- Footer tagline (above the allergen notice) ----- */
+.footer-tagline {
+  max-width: 560px;
+  margin: 20px auto 0 !important;
+  font-family: "Bodoni Moda", serif;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* ----- Custom cake gallery ----- */
+.gallery {
+  max-width: 1100px;
+  margin: 72px auto 0;
+  text-align: center;
+}
+
+.gallery-title {
+  font-family: "Bodoni Moda", serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.gallery-note {
+  font-family: "Bodoni Moda", serif;
+  font-style: italic;
+  color: var(--muted);
+  margin: 8px 0 28px;
+}
+
+.gallery-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.gallery-grid button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--gold);
+  background: var(--white);
+  cursor: zoom-in;
+}
+
+.gallery-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: opacity .2s;
+}
+
+.gallery-grid button:hover img { opacity: .88; }
+
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+}
+
+.lightbox {
+  max-width: min(92vw, 900px);
+  max-height: 92vh;
+  padding: 0;
+  border: 1px solid var(--gold);
+  background: var(--white);
+}
+
+.lightbox::backdrop { background: rgba(59, 47, 45, .8); }
+
+.lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 88vh;
+  margin: 0 auto;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 253, 251, .9);
+  color: var(--ink);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
 }

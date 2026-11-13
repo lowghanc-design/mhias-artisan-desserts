@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mhia's Artisan Desserts | Casper, WY</title>
-  <meta name="description" content="Homemade desserts crafted with love. Tres leches, chocolate flan, churro cheesecake and custom cakes. Pickup in Casper, WY.">
+  <meta name="description" content="Homemade desserts crafted with love. Tres leches, mini choco flan, churro cheesecake and custom cakes. Pickup in Casper, WY.">
   <meta name="theme-color" content="#f7e6e2">
   <!-- Link preview when the site is shared by text or social media.
        If the site moves to a new address, update both URLs below. -->
@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Mhia's Artisan Desserts">
-  <meta property="og:description" content="Homemade desserts crafted with love. Tres leches, chocolate flan, churro cheesecake and custom cakes. Pickup in Casper, WY.">
+  <meta property="og:description" content="Homemade desserts crafted with love. Tres leches, mini choco flan, churro cheesecake and custom cakes. Pickup in Casper, WY.">
   <link rel="icon" href="images/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
 -->
 
   <header class="site-header">
-    <a href="#top" class="brand"><img src="images/logo.png" alt="Mhia's Artisan Desserts home" width="64" height="64"></a>
+    <a href="#top" class="brand"><img src="images/logo.png" alt="Mhia's Artisan Desserts home" width="84" height="84"></a>
     <nav class="nav">
       <a href="#menu">Menu</a>
       <a href="#cakes">Cakes</a>
@@ -96,7 +96,7 @@
         </article>
         <article class="card">
           <span class="corner-ribbon">Bestseller</span>
-          <img loading="lazy" class="cutout" src="images/chocolate-tres-leches.png" alt="Chocolate Oreo Tres Leches with cookie crumbs and chocolate drizzle">
+          <img loading="lazy" src="images/oreo-tres-leches.jpg" alt="Chocolate Oreo Tres Leches with whipped cream, Oreo cookies and chocolate drizzle">
           <h3>Chocolate Oreo Tres Leches</h3>
           <p class="price">$7</p>
           <button type="button" class="btn btn-small" data-add="oreo-tres-leches">Add to Cart</button>
@@ -112,7 +112,7 @@
       </div>
       <div class="grid">
         <article class="card">
-          <img loading="lazy" class="cutout" src="images/chocolate-tres-leches.png" alt="Chocolate Oreo Tres Leches with cookie crumbs and chocolate drizzle">
+          <img loading="lazy" src="images/oreo-tres-leches.jpg" alt="Chocolate Oreo Tres Leches with whipped cream, Oreo cookies and chocolate drizzle">
           <h3>Chocolate Oreo Tres Leches</h3>
           <p class="price">$7</p>
           <button type="button" class="btn btn-small" data-add="oreo-tres-leches">Add to Cart</button>
@@ -124,8 +124,9 @@
           <button type="button" class="btn btn-small" data-add="biscoff-tres-leches">Add to Cart</button>
         </article>
         <article class="card">
-          <img loading="lazy" src="images/dubai-chocolate-tres-leches.jpg" alt="Dubai Chocolate Tres Leches with pistachio cake, strawberries, kataifi and chocolate drizzle">
-          <h3>Dubai Chocolate Tres Leches</h3>
+          <img loading="lazy" src="images/dubai-chocolate-tres-leches.jpg" alt="Dubai Pistachio Tres Leches with pistachio cake, strawberries, kataifi and Nutella drizzle">
+          <h3>Dubai Pistachio Tres Leches</h3>
+          <p class="desc">Pistachio cake, strawberries, kataifi and Nutella drizzle</p>
           <p class="price">$7</p>
           <button type="button" class="btn btn-small" data-add="dubai-tres-leches">Add to Cart</button>
         </article>
@@ -136,10 +137,20 @@
           <button type="button" class="btn btn-small" data-add="strawberry-tres-leches">Add to Cart</button>
         </article>
         <article class="card">
-          <img loading="lazy" class="cutout" src="images/chocoflan.png" alt="Chocolate Flan topped with a strawberry">
-          <h3>Chocolate Flan</h3>
-          <p class="price">$7</p>
-          <button type="button" class="btn btn-small" data-add="chocolate-flan">Add to Cart</button>
+          <img loading="lazy" class="cutout" src="images/chocoflan.png" alt="Mini Choco Flan topped with a strawberry">
+          <h3>Mini Choco Flan</h3>
+          <!-- Flavor choice: values must match the "chocolate-flan" options in js/catalog.js -->
+          <fieldset class="size-picker">
+            <legend>Choose a flavor</legend>
+            <input type="radio" name="flan-flavor" id="flan-chocolate" value="chocolate" checked>
+            <label for="flan-chocolate">Chocolate</label>
+            <input type="radio" name="flan-flavor" id="flan-red-velvet" value="red-velvet">
+            <label for="flan-red-velvet">Red Velvet</label>
+            <input type="radio" name="flan-flavor" id="flan-strawberry" value="strawberry">
+            <label for="flan-strawberry">Strawberry</label>
+            <p class="price">$7</p>
+          </fieldset>
+          <button type="button" class="btn btn-small" data-add="chocolate-flan" data-size-group="flan-flavor">Add to Cart</button>
         </article>
         <article class="card">
           <img loading="lazy" class="cutout" src="images/churro-cheesecake.png" alt="Churro Cheesecake slice with a strawberry and chocolate drizzle">
@@ -223,10 +234,15 @@
           <!-- Cake builder. Names, prices and choices must match public/js/catalog.js -->
           <form id="cake-form" novalidate>
           <details class="cake-row" data-row="size">
-            <summary><span class="row-title">Cake Size</span><span class="row-hint" data-default="from $42">from $42</span></summary>
+            <summary><span class="row-title">Cake Size</span><span class="row-hint" data-default="from $35">from $35</span></summary>
+            <p class="choice-note">Round cakes are tall cakes with 3 layers of cake and 2 fillings, included in the price. Servings are approximate and depend on how the cake is sliced.</p>
             <ul class="menu-list choice-list">
-              <li><label><input type="radio" name="size" value="8x8"><span>8&times;8&Prime; cake</span><span class="amt">$42</span></label></li>
-              <li><label><input type="radio" name="size" value="8x16"><span>8&times;16&Prime; cake</span><span class="amt">$56</span></label></li>
+              <li><label><input type="radio" name="size" value="4in"><span>4&Prime; round &middot; serves 4&ndash;8</span><span class="amt">$35</span></label></li>
+              <li><label><input type="radio" name="size" value="6in"><span>6&Prime; round &middot; serves 10&ndash;15</span><span class="amt">$65</span></label></li>
+              <li><label><input type="radio" name="size" value="8in"><span>8&Prime; round &middot; serves 20&ndash;30</span><span class="amt">$85</span></label></li>
+              <li><label><input type="radio" name="size" value="10in"><span>10&Prime; round &middot; serves 35&ndash;45</span><span class="amt">$110</span></label></li>
+              <li><label><input type="radio" name="size" value="8x8"><span>8&times;8&Prime; tray cake</span><span class="amt">$42</span></label></li>
+              <li><label><input type="radio" name="size" value="9x13"><span>9&times;13&Prime; tray cake</span><span class="amt">$56</span></label></li>
             </ul>
           </details>
 
@@ -245,7 +261,8 @@
           </details>
 
           <details class="cake-row" data-row="fillings">
-            <summary><span class="row-title">Fillings</span><span class="row-hint" data-default="+$9 each, up to two">+$9 each, up to two</span></summary>
+            <summary><span class="row-title">Fillings</span><span class="row-hint" data-default="up to two">up to two</span></summary>
+            <p class="choice-note">Included on round cakes; +$9 each on tray cakes.</p>
             <ul class="menu-list menu-list-2 choice-list">
               <li><label><input type="checkbox" name="fillings" value="Dulce de Leche"><span>Dulce de Leche</span></label></li>
               <li><label><input type="checkbox" name="fillings" value="Dulce de Leche with Pecans"><span>Dulce de Leche with Pecans</span></label></li>
@@ -287,7 +304,37 @@
           <p class="cake-menu-fine">Special requests and custom designs are subject to availability and may affect the final price. Questions? Text <a href="tel:+13074411419">307-441-1419</a>.</p>
         </div>
       </div>
+
+      <!-- CUSTOM CAKE GALLERY. To add a photo: put a .webp in images/gallery/
+           (about 1200px on the long side) and copy one <li> line below.
+           Tapping a photo opens it full size (js/gallery.js). -->
+      <div class="gallery" id="gallery">
+        <h3 class="gallery-title">Custom Cake Gallery</h3>
+        <p class="gallery-note">A few of the cakes we've made for our customers' celebrations</p>
+        <ul class="gallery-grid">
+          <li><button type="button"><img loading="lazy" src="images/gallery/soccer-birthday-cake.webp" alt="Soccer-themed 9th birthday cake with a green grass top"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/race-car-birthday-cake.webp" alt="Red race car birthday cake with a checkered flag band"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/pink-butterfly-cake.webp" alt="Pink birthday cake decorated with butterflies and roses"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/gold-crown-cake.webp" alt="Cream birthday cake with a gold crown and fresh roses"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/lavender-rosette-cake.webp" alt="Lavender rosette cake on a white cake stand"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/rose-bouquet-cake.webp" alt="Cake topped with a bouquet of yellow roses and a red bow"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/chocoflan-celebration-cake.webp" alt="Chocoflan celebration cake with strawberries and chocolate cookies"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/strawberry-flan-cake.webp" alt="Round flan cake ringed with fresh strawberries and blueberries"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/floral-sheet-cake.webp" alt="Happy birthday sheet cake with pink and orange piped flowers"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/cookies-and-cream-sheet-cake.webp" alt="Cookies and cream birthday sheet cake"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/biscoff-birthday-tray.webp" alt="Biscoff birthday tray cake with cookie butter lettering"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/strawberry-tray-cake.webp" alt="Tray cake covered in sliced strawberries"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/strawberry-tres-leches-tray.webp" alt="Tres leches tray cake topped with whole strawberries"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/fruit-drizzle-tray-cake.webp" alt="Tray cake with strawberries, kataifi and chocolate drizzle"></button></li>
+          <li><button type="button"><img loading="lazy" src="images/gallery/strawberry-rose-top.webp" alt="Close-up of a cake topped with strawberries arranged like a rose"></button></li>
+        </ul>
+      </div>
     </section>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Cake photo">
+      <button type="button" class="lightbox-close" aria-label="Close photo">&times;</button>
+      <img src="" alt="">
+    </dialog>
 
 <!--
   #####################################################################
@@ -315,7 +362,7 @@
         <li>
           <span class="step-num">3</span>
           <h3>Pick up in Casper</h3>
-          <p>Pickup only, at 4030 Gannett St., Casper, WY.</p>
+          <p>Pick up in Casper &mdash; the exact pickup address is provided after order confirmation.</p>
         </li>
       </ol>
       <div class="center">
@@ -328,13 +375,13 @@
     <section class="section" id="story">
       <div class="story">
         <div class="story-photo">
-          <img loading="lazy" src="images/story.webp" alt="The people behind Mhia's Artisan Desserts, smiling together">
+          <img loading="lazy" src="images/meet-the-baker.webp" alt="The family behind Mhia's Artisan Desserts, smiling together outdoors">
         </div>
         <div>
           <h2>Our Story</h2>
           <span class="gold-rule gold-rule-left"></span>
-          <p>At Mhia's Artisan Desserts, we believe every sweet moment deserves something extraordinary. Our passion is creating handcrafted desserts that bring together exceptional flavor, beautiful presentation, and a personal touch.</p>
-          <p>Every dessert is homemade with love in our kitchen here in Casper, Wyoming, from our tres leches to our custom cakes. We can't wait to be part of your next celebration.</p>
+          <p>Mhia's Artisan Desserts is a family-owned home bakery in Casper, WY, specializing in mini artisan desserts and event dessert tables, made with love and attention to every detail.</p>
+          <p>Planning an event? Text <a href="sms:+13074411419">307-441-1419</a> for a dessert table quote.</p>
         </div>
       </div>
     </section>
@@ -346,6 +393,7 @@
     <img src="images/sprig.svg" alt="" class="sprig">
     <p class="footer-brand">Mhia's Artisan Desserts</p>
     <p>Casper, WY &middot; <a href="tel:+13074411419">307-441-1419</a> &middot; <a href="tel:+13072585044">307-258-5044</a></p>
+    <p class="footer-tagline">From custom cakes to artisan desserts, every creation is made fresh and designed to make your celebration unforgettable.</p>
     <p class="allergens"><strong>Allergen notice:</strong> Our desserts contain milk, eggs and wheat, and some contain tree nuts (walnuts, pecans, pistachios, hazelnuts), coconut or soy. Everything is made in a kitchen that handles these ingredients.</p>
     <p class="disclaimer">This product was produced in a home kitchen that is not subject to state licensure or inspection.</p>
     <p class="copyright">&copy; 2026 Mhia's Artisan Desserts</p>
@@ -365,7 +413,7 @@
 
       <form class="checkout" id="checkout-form" novalidate hidden>
         <h3>Pickup</h3>
-        <p class="checkout-hint" id="pickup-hint">Pickup at 4030 Gannett St., Casper, WY.</p>
+        <p class="checkout-hint" id="pickup-hint">Pickup in Casper; the exact address is provided after order confirmation.</p>
         <div class="field-row">
           <div class="field">
             <label for="pickup-date">Date</label>
@@ -413,5 +461,6 @@
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
   <script type="module" src="js/cart.js"></script>
+  <script type="module" src="js/gallery.js"></script>
 </body>
 </html>

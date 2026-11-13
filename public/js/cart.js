@@ -1,6 +1,6 @@
 // Shopping cart, cake builder and checkout for Mhia's Artisan Desserts.
 import {
-  ITEMS, CAKE, RULES, money, linePrice, lineTitle, lineDetails, hasCake,
+  ITEMS, CAKE, RULES, money, linePrice, lineTitle, lineDetails, hasCake, fillingPrice,
   pickupTimes, timeLabel, pickupInstant, localDate,
 } from "./catalog.js";
 
@@ -196,7 +196,9 @@ function updateCake() {
 
   setHint("size", cake.size ? CAKE.sizes[cake.size].label : "");
   setHint("flavor", cake.flavor);
-  setHint("fillings", cake.fillings.length ? `${cake.fillings.length} selected (+${money(cake.fillings.length * CAKE.fillingPrice)})` : "");
+  const fillCost = cake.size ? cake.fillings.length * fillingPrice(cake.size) : 0;
+  setHint("fillings", !cake.fillings.length ? ""
+    : `${cake.fillings.length} selected${fillCost ? ` (+${money(fillCost)})` : cake.size ? " (included)" : ""}`);
   const addonTotal = cake.addons.reduce((s, a) => s + CAKE.addons[a].price, 0);
   setHint("addons", cake.addons.length ? `${cake.addons.length} selected (+${money(addonTotal)})` : "");
   setHint("writing", cake.writing ? "added" : "");
@@ -267,8 +269,8 @@ function updatePickupLimits() {
   if (dateInput.value && dateInput.value < min) dateInput.value = "";
 
   $("pickup-hint").textContent = hasCake(cart)
-    ? "Custom cakes need at least 3 days' notice. Pickup at 4030 Gannett St., Casper, WY."
-    : "Order at least 24 hours ahead. Pickup at 4030 Gannett St., Casper, WY.";
+    ? "Custom cakes need at least 3 days' notice. Pickup in Casper; the exact address is provided after order confirmation."
+    : "Order at least 24 hours ahead. Pickup in Casper; the exact address is provided after order confirmation.";
   updateTimes();
 }
 
