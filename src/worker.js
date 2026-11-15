@@ -131,9 +131,10 @@ async function checkout(request, env) {
       allow_tipping: false,
       accepted_payment_methods: { apple_pay: true, google_pay: true, cash_app_pay: true },
     },
+    // Square rejects buyer_email when the order has a fulfillment
+    // (CONFLICTING_PARAMETERS), so the email only goes in pickup_details above.
     pre_populated_data: {
       buyer_phone_number: phone,
-      ...(email ? { buyer_email: email } : {}),
     },
     payment_note: `Pickup ${date} ${time} – ${name}`.slice(0, 500),
   };
